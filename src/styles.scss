@@ -29,7 +29,6 @@ $my-theme: mat.define-light-theme(
       warn: $my-warn,
     ),
     typography: mat.define-typography-config(),
-    density: 0,
   )
 );
 
@@ -43,4 +42,23 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mat-primary {
+  &.mat-mdc-button-base {
+    --mat-fab-foreground-color: #fff;
+    --mdc-filled-button-label-text-color: #fff;
+    --mdc-protected-button-label-text-color: #fff;
+  }
+
+  &.mat-mdc-fab,
+  &.mat-mdc-mini-fab {
+    --mat-icon-color: #fff;
+  }
 }

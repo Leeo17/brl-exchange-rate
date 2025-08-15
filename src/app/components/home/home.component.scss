@@ -1,13 +1,18 @@
 .home {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
   &__content {
+    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     max-width: 768px;
     margin: 0 auto;
     gap: 32px;
+    padding: 16px;
 
     &__button {
       border-radius: 100px;
@@ -21,5 +26,13 @@
       border: none;
       border-top: 1px solid #e5e5e5;
     }
+  }
+
+  &__footer {
+    text-align: center;
+    padding: 8px;
+    background: #07b0fb;
+    color: #fff;
+    font-size: 12px;
   }
 }

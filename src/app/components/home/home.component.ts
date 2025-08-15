@@ -19,6 +19,11 @@ export class HomeComponent {
   }
 
   exchangeResult() {
+    if (!this.inputValue) {
+      alert('Please type the currency code.');
+      return;
+    }
+
     this.showExchangeRate = false;
     this.currencyCode = this.inputValue.trim().toUpperCase();
 

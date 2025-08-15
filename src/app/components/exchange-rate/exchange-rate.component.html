@@ -2,13 +2,72 @@
   <div class="exchange-rate__header">
     <div>
       <h3 class="exchange-rate__header__title">Exchange rate now</h3>
-      <span class="exchange-rate__header__subtitle">{{ dateTime }}</span>
+      <span class="exchange-rate__header__date">{{ dateTime }}</span>
     </div>
-    <span class="exchange-rate__header__currency">{{
+    <strong class="exchange-rate__header__currency">{{
       currencyCode + "/BRL"
-    }}</span>
+    }}</strong>
   </div>
   <div class="exchange-rate__result">
     <span class="exchange-rate__result__value">{{ value }}</span>
+  </div>
+  <div class="exchange-rate__header">
+    <h4 class="exchange-rate__header__title">LAST 30 DAYS</h4>
+    <span class="exchange-rate__header__action" (click)="toggleLast30Days()">
+      {{ isLast30DaysOpen ? "–" : "+" }}
+    </span>
+  </div>
+  <hr class="exchange-rate__divider" *ngIf="!isLast30DaysOpen" />
+  <div class="exchange-rate__container" *ngIf="isLast30DaysOpen">
+    <mat-card class="exchange-rate__card" *ngFor="let rate of dailyRates">
+      <mat-card-header>
+        <mat-card-title class="exchange-rate__card__title">{{
+          formatDate(false, rate.date)
+        }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="exchange-rate__card__grid">
+          <div class="exchange-rate__card__item">
+            <span class="exchange-rate__card__item__label">OPEN: </span>
+            <span class="exchange-rate__card__item__value">{{
+              formatCurrency(rate.open, 4)
+            }}</span>
+          </div>
+          <div class="exchange-rate__card__item">
+            <span class="exchange-rate__card__item__label">HIGH: </span>
+            <span class="exchange-rate__card__item__value">{{
+              formatCurrency(rate.high, 4)
+            }}</span>
+          </div>
+          <div class="exchange-rate__card__item">
+            <span class="exchange-rate__card__item__label">CLOSE: </span>
+            <span class="exchange-rate__card__item__value">{{
+              formatCurrency(rate.close, 4)
+            }}</span>
+          </div>
+          <div class="exchange-rate__card__item">
+            <span class="exchange-rate__card__item__label">LOW: </span>
+            <span class="exchange-rate__card__item__value">{{
+              formatCurrency(rate.low, 4)
+            }}</span>
+          </div>
+        </div>
+        <div
+          class="exchange-rate__card__item exchange-rate__card__item--small-gap"
+        >
+          <span class="exchange-rate__card__item__label">CLOSE DIFF (%): </span>
+          <span
+            class="exchange-rate__card__item__value"
+            [style.color]="rate.close > rate.open ? '#69C669' : '#E54E4E'"
+            >{{ calculateCloseDiff(rate.open, rate.close) }}</span
+          >
+          <span
+            class="exchange-rate__card__item__value"
+            [style.color]="rate.close > rate.open ? '#69C669' : '#E54E4E'"
+            >{{ rate.close > rate.open ? "▴" : "▾" }}
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

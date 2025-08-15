@@ -15,7 +15,7 @@
       font-weight: 600;
     }
 
-    &__subtitle {
+    &__date {
       font-size: 14px;
       line-height: 22px;
       color: #333333;
@@ -25,8 +25,19 @@
       font-size: 24px;
       line-height: 30px;
       color: #07b0fb;
-      font-weight: 700;
     }
+
+    &__action {
+      color: #07b0fb;
+      cursor: pointer;
+      font-size: 32px;
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    border: none;
+    border-top: 2px solid #07b0fb;
   }
 
   &__result {
@@ -35,12 +46,70 @@
     align-items: center;
     background-color: #e6f7ff;
     height: 72px;
+    margin-bottom: 16px;
 
     &__value {
       font-size: 32px;
       line-height: 40px;
       color: #07b0fb;
       font-weight: 700;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #f4f4f4;
+    padding: 10px;
+  }
+
+  &__card {
+    border-radius: 0px;
+    gap: 16px;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 16px;
+      column-gap: 34px;
+      margin-bottom: 16px;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &--small-gap {
+        gap: 8px;
+        justify-content: flex-start;
+      }
+
+      &__label {
+        font-size: 11px;
+        font-weight: 500;
+        color: #3f3f3f;
+      }
+
+      &__value {
+        font-size: 16px;
+        color: #3f3f3f;
+        font-weight: 600;
+      }
+    }
+
+    &__title {
+      font-size: 14px;
+      color: #07b0fb;
+      font-weight: 600;
+      line-height: 22px;
+    }
+
+    &__subtitle {
+      margin-right: 14px;
     }
   }
 }

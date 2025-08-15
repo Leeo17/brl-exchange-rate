@@ -19,4 +19,14 @@ export class ApiService {
       params,
     });
   }
+
+  getDailyExchangeRate(currencyCode: string) {
+    const params = new HttpParams()
+      .set('apiKey', 'RVZG0GHEV2KORLNA')
+      .set('from_symbol', currencyCode)
+      .set('to_symbol', 'BRL');
+    return this.http.get<any>(this.baseUrl + '/dailyExchangeRate', {
+      params,
+    });
+  }
 }

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { ButtonComponent } from './components/button/button.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +32,7 @@ import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
     HttpClientModule,
   ],
   providers: [ApiService],

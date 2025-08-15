@@ -31,7 +31,7 @@ export class ExchangeRateComponent implements OnInit {
     this.apiService.getDailyExchangeRate(this.currencyCode).subscribe({
       next: (response) => {
         if (response?.success) {
-          this.dailyRates = response?.data?.slice(0, 30) || [];
+          this.dailyRates = response?.data || [];
           this.isLast30DaysOpen = true;
         } else {
           alert('Failed to fetch daily exchange rate. Please try again.');
@@ -44,9 +44,9 @@ export class ExchangeRateComponent implements OnInit {
     });
   }
 
-  calculateCloseDiff(open: number, close: number): string {
-    const difference = close - open;
-    const percentageDiff = (difference / open) * 100;
+  calculateCloseDiff(previous: number, current: number): string {
+    const difference = current - previous;
+    const percentageDiff = (difference / previous) * 100;
 
     return percentageDiff.toFixed(2) + '%';
   }

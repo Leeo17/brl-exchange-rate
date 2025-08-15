@@ -1,10 +1,40 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  constructor(private apiService: ApiService) {}
 
+  showExchangeRateNow: boolean = false;
+  currencyCode: string = '';
+  inputValue = '';
+  exchangeRate: number = 0;
+
+  valueChanged(value: string) {
+    this.inputValue = value;
+  }
+
+  exchangeResult() {
+    this.showExchangeRateNow = false;
+    this.currencyCode = this.inputValue.trim().toUpperCase();
+
+    this.apiService.getCurrentExchangeRate(this.currencyCode).subscribe({
+      next: (data) => {
+        if (data?.success) {
+          this.exchangeRate = data?.exchangeRate || 0;
+          this.showExchangeRateNow = true;
+        } else {
+          alert('Failed to fetch exchange rate. Please try again.');
+        }
+      },
+      error: (error) => {
+        alert('Failed to fetch exchange rate. Please try again.');
+        console.error('Error fetching exchange rate:', error);
+      },
+    });
+  }
 }

@@ -1,8 +1,20 @@
 <main class="home">
   <app-header></app-header>
   <div class="home__content">
-    <app-input></app-input>
-    <app-button label="EXCHANGE RESULT"></app-button>
+    <app-input (valueEvent)="valueChanged($event)"></app-input>
+    <button
+      mat-flat-button
+      class="home__content__button"
+      color="primary"
+      (click)="exchangeResult()"
+    >
+      EXCHANGE RESULT
+    </button>
     <hr class="home__content__divider" />
+    <app-exchange-rate-now
+      *ngIf="showExchangeRateNow"
+      [currencyCode]="currencyCode"
+      [exchangeRate]="exchangeRate"
+    ></app-exchange-rate-now>
   </div>
 </main>

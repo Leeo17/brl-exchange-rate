@@ -9,6 +9,13 @@
     margin: 0 auto;
     gap: 32px;
 
+    &__button {
+      border-radius: 100px;
+      height: 48px;
+      width: 100%;
+      font-size: 16px;
+    }
+
     &__divider {
       width: 100%;
       border: none;

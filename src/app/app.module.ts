@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponent } from './components/button/button.component';
+import { ExchangeRateNowComponent } from './components/exchange-rate-now/exchange-rate-now.component';
+import { ApiService } from './services/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,7 @@ import { ButtonComponent } from './components/button/button.component';
     HomeComponent,
     InputComponent,
     ButtonComponent,
+    ExchangeRateNowComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +31,9 @@ import { ButtonComponent } from './components/button/button.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

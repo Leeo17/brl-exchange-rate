@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-exchange-rate-now',
-  templateUrl: './exchange-rate-now.component.html',
-  styleUrls: ['./exchange-rate-now.component.scss'],
+  selector: 'app-exchange-rate',
+  templateUrl: './exchange-rate.component.html',
+  styleUrls: ['./exchange-rate.component.scss'],
 })
-export class ExchangeRateNowComponent implements OnInit {
+export class ExchangeRateComponent implements OnInit {
   @Input() currencyCode: string = '';
   @Input() exchangeRate: number = 0;
 

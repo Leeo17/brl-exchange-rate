@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
 export class HomeComponent {
   constructor(private apiService: ApiService) {}
 
-  showExchangeRateNow: boolean = false;
+  showExchangeRate: boolean = false;
   currencyCode: string = '';
   inputValue = '';
   exchangeRate: number = 0;
@@ -19,14 +19,14 @@ export class HomeComponent {
   }
 
   exchangeResult() {
-    this.showExchangeRateNow = false;
+    this.showExchangeRate = false;
     this.currencyCode = this.inputValue.trim().toUpperCase();
 
     this.apiService.getCurrentExchangeRate(this.currencyCode).subscribe({
       next: (data) => {
         if (data?.success) {
           this.exchangeRate = data?.exchangeRate || 0;
-          this.showExchangeRateNow = true;
+          this.showExchangeRate = true;
         } else {
           alert('Failed to fetch exchange rate. Please try again.');
         }

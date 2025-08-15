@@ -11,10 +11,10 @@
       EXCHANGE RESULT
     </button>
     <hr class="home__content__divider" />
-    <app-exchange-rate-now
-      *ngIf="showExchangeRateNow"
+    <app-exchange-rate
+      *ngIf="showExchangeRate"
       [currencyCode]="currencyCode"
       [exchangeRate]="exchangeRate"
-    ></app-exchange-rate-now>
+    ></app-exchange-rate>
   </div>
 </main>

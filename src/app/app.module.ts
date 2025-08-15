@@ -11,9 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { ButtonComponent } from './components/button/button.component';
-import { ExchangeRateNowComponent } from './components/exchange-rate-now/exchange-rate-now.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ExchangeRateComponent } from './components/exchange-rate/exchange-rate.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     InputComponent,
     ButtonComponent,
-    ExchangeRateNowComponent,
+    ExchangeRateComponent,
   ],
   imports: [
     BrowserModule,
